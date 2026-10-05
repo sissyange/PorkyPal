@@ -1,0 +1,919 @@
+/* ==========================================
+   PORKYPAL - GET STARTED SCREEN
+========================================== */
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    min-height: 100vh;
+    background: #f4e8e6;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* FIXED: allow page scrolling */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+button {
+    font-family: inherit;
+}
+
+
+/* ==========================================
+   PHONE
+========================================== */
+
+.phone {
+    width: 100%;
+    max-width: 430px;
+
+    /* FIXED */
+    min-height: 100vh;
+    height: auto;
+
+    background: #fffaf7;
+
+    /* FIXED: don't block scrolling */
+    overflow: visible;
+}
+
+
+/* ==========================================
+   MAIN SCREEN
+========================================== */
+
+.welcome-screen {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    padding: 25px 20px 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffafa 0%,
+            #fff6f2 100%
+        );
+
+    /* FIXED */
+    overflow: visible;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.brand {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.brand-name {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+
+    color: #ee4e86;
+
+    letter-spacing: -3px;
+}
+
+.brand-name span {
+    color: #f58aaa;
+}
+
+.brand-subtitle {
+    margin-top: 7px;
+
+    color: #79564d;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   FARM AREA
+========================================== */
+
+.hero {
+    width: 100%;
+    margin-bottom: 17px;
+}
+
+.farm {
+    position: relative;
+
+    width: 100%;
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #dff5f4 0%,
+            #eaf8f0 47%,
+            #a9d68e 48%,
+            #82b86f 72%,
+            #e8ad77 73%,
+            #f4c18d 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(93, 65, 55, .13);
+}
+
+
+/* ==========================================
+   SUN
+========================================== */
+
+.sun {
+    position: absolute;
+
+    top: 25px;
+    right: 28px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #ffd76d;
+
+    box-shadow:
+        0 0 0 8px rgba(255,215,109,.15);
+}
+
+
+/* ==========================================
+   CLOUDS
+========================================== */
+
+.cloud {
+    position: absolute;
+
+    width: 62px;
+    height: 20px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.9);
+}
+
+.cloud::before {
+    content: "";
+
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    left: 10px;
+    bottom: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.cloud::after {
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    right: 8px;
+    bottom: 4px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.cloud-one {
+    top: 50px;
+    left: 28px;
+}
+
+.cloud-two {
+    top: 78px;
+    right: 105px;
+
+    transform: scale(.7);
+}
+
+
+/* ==========================================
+   HILLS
+========================================== */
+
+.hill {
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+}
+
+.hill-back {
+    width: 145%;
+    height: 130px;
+
+    left: -25%;
+    bottom: 80px;
+
+    background: #a4d58d;
+}
+
+.hill-front {
+    width: 150%;
+    height: 115px;
+
+    left: -20%;
+    bottom: 25px;
+
+    background: #7db36c;
+}
+
+
+/* ==========================================
+   BARN
+========================================== */
+
+.barn {
+    position: absolute;
+
+    left: 28px;
+    bottom: 103px;
+
+    width: 78px;
+    height: 72px;
+
+    z-index: 3;
+}
+
+.barn-roof {
+    position: absolute;
+
+    left: -8px;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 47px solid transparent;
+    border-right: 47px solid transparent;
+    border-bottom: 31px solid #df715f;
+}
+
+.barn-body {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 78px;
+    height: 54px;
+
+    background: #e48a6d;
+
+    border-radius: 3px;
+}
+
+.barn-door {
+    position: absolute;
+
+    left: 27px;
+    bottom: 0;
+
+    width: 24px;
+    height: 36px;
+
+    background: #855448;
+
+    border-radius: 12px 12px 0 0;
+}
+
+.barn-window {
+    position: absolute;
+
+    right: 8px;
+    top: 12px;
+
+    width: 17px;
+    height: 14px;
+
+    background: #d8f2ef;
+
+    border: 3px solid #b85f55;
+}
+
+
+/* ==========================================
+   FENCE
+========================================== */
+
+.fence {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 66px;
+
+    height: 65px;
+
+    z-index: 4;
+}
+
+.fence::before,
+.fence::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 7px;
+
+    border-radius: 8px;
+
+    background: #dfa56c;
+}
+
+.fence::before {
+    top: 17px;
+}
+
+.fence::after {
+    top: 42px;
+}
+
+.fence i {
+    position: absolute;
+
+    top: 0;
+
+    width: 8px;
+    height: 68px;
+
+    border-radius: 5px;
+
+    background: #cc915b;
+}
+
+.fence i:nth-child(1) {
+    left: 8%;
+}
+
+.fence i:nth-child(2) {
+    left: 28%;
+}
+
+.fence i:nth-child(3) {
+    left: 48%;
+}
+
+.fence i:nth-child(4) {
+    left: 68%;
+}
+
+.fence i:nth-child(5) {
+    left: 88%;
+}
+
+
+/* ==========================================
+   PIG
+========================================== */
+
+.pig-wrap {
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 180px;
+    height: 195px;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    filter:
+        drop-shadow(
+            0 8px 4px rgba(80,50,40,.16)
+        );
+}
+
+
+/* ==========================================
+   PIG BODY
+========================================== */
+
+.pig-body {
+    position: absolute;
+
+    left: 20px;
+    bottom: 12px;
+
+    width: 140px;
+    height: 91px;
+
+    background: #f58ba7;
+
+    border: 3px solid #e77594;
+
+    border-radius: 55%;
+}
+
+
+/* ==========================================
+   PIG FACE
+========================================== */
+
+.pig-face {
+    position: absolute;
+
+    left: 27px;
+    top: 25px;
+
+    width: 126px;
+    height: 108px;
+
+    background: #f68eaa;
+
+    border: 3px solid #e77594;
+
+    border-radius: 50%;
+
+    z-index: 5;
+}
+
+
+/* ==========================================
+   PIG EARS
+========================================== */
+
+.pig-ear {
+    position: absolute;
+
+    top: 5px;
+
+    width: 47px;
+    height: 50px;
+
+    background: #ed7897;
+
+    border: 3px solid #d95e80;
+
+    z-index: 4;
+}
+
+.pig-ear.left {
+    left: 15px;
+
+    transform: rotate(-32deg);
+
+    border-radius:
+        70%
+        20%
+        70%
+        25%;
+}
+
+.pig-ear.right {
+    right: 13px;
+
+    transform: rotate(32deg);
+
+    border-radius:
+        20%
+        70%
+        25%
+        70%;
+}
+
+
+/* ==========================================
+   PIG EYES
+========================================== */
+
+.eye {
+    position: absolute;
+
+    top: 35px;
+
+    width: 11px;
+    height: 14px;
+
+    background: #493330;
+
+    border-radius: 50%;
+}
+
+.eye-left {
+    left: 31px;
+}
+
+.eye-right {
+    right: 31px;
+}
+
+
+/* ==========================================
+   PIG SNOUT
+========================================== */
+
+.snout {
+    position: absolute;
+
+    left: 50%;
+    bottom: 13px;
+
+    transform: translateX(-50%);
+
+    width: 58px;
+    height: 40px;
+
+    background: #f8a6b9;
+
+    border: 2px solid #df718e;
+
+    border-radius: 50%;
+}
+
+.snout span {
+    position: absolute;
+
+    top: 12px;
+
+    width: 8px;
+    height: 10px;
+
+    background: #a8506c;
+
+    border-radius: 50%;
+}
+
+.snout span:first-child {
+    left: 14px;
+}
+
+.snout span:last-child {
+    right: 14px;
+}
+
+
+/* ==========================================
+   PIG LEGS
+========================================== */
+
+.leg {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 30px;
+    height: 55px;
+
+    background: #ed809d;
+
+    border-radius:
+        15px
+        15px
+        8px
+        8px;
+
+    z-index: 3;
+}
+
+.leg-one {
+    left: 43px;
+}
+
+.leg-two {
+    right: 43px;
+}
+
+
+/* ==========================================
+   PIG TAIL
+========================================== */
+
+.tail {
+    position: absolute;
+
+    right: 3px;
+    bottom: 55px;
+
+    width: 31px;
+    height: 31px;
+
+    border: 7px solid #ed809d;
+
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+
+    border-radius: 50%;
+
+    transform: rotate(30deg);
+}
+
+
+/* ==========================================
+   GRASS
+========================================== */
+
+.grass {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 120px;
+    height: 32px;
+
+    background: #70a667;
+
+    border-radius: 60% 60% 0 0;
+
+    z-index: 10;
+}
+
+.grass-one {
+    left: -25px;
+}
+
+.grass-two {
+    right: -25px;
+}
+
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.intro {
+    text-align: center;
+
+    padding: 0 5px;
+}
+
+.intro h2 {
+    color: #493a36;
+
+    font-size: 23px;
+
+    line-height: 1.18;
+
+    font-weight: 800;
+}
+
+.intro p {
+    margin: 9px auto 0;
+
+    max-width: 310px;
+
+    color: #96827c;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    /* FIXED */
+    flex-shrink: 0;
+}
+
+.btn {
+    width: 100%;
+
+    height: 52px;
+
+    border-radius: 17px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .15s;
+}
+
+.btn:active {
+    transform: scale(.97);
+}
+
+
+/* ==========================================
+   GET STARTED
+========================================== */
+
+.btn-primary {
+    border: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f65b91,
+            #e9417b
+        );
+
+    box-shadow:
+        0 8px 18px
+        rgba(239,79,135,.25);
+}
+
+.btn-primary span {
+    margin-left: 8px;
+
+    font-size: 18px;
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+.btn-login {
+    color: #e94b82;
+
+    background: white;
+
+    border: 1.5px solid #f2b5c8;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.bottom-note {
+    margin-top: 25px;
+
+    padding-top: 14px;
+
+    text-align: center;
+
+    color: #aa918a;
+
+    font-size: 10px;
+
+    /* FIXED */
+    padding-bottom: 10px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 430px) {
+
+    .welcome-screen {
+        padding:
+            22px
+            18px
+            30px;
+    }
+
+    .brand-name {
+        font-size: 48px;
+    }
+
+    .farm {
+        height: 290px;
+    }
+}
+
+
+/* ==========================================
+   VERY SMALL SCREEN
+========================================== */
+
+@media (max-height: 700px) {
+
+    .welcome-screen {
+        padding-top: 15px;
+    }
+
+    .brand {
+        margin-bottom: 8px;
+    }
+
+    .brand-name {
+        font-size: 42px;
+    }
+
+    .farm {
+        height: 235px;
+    }
+
+    .pig-wrap {
+        transform:
+            translateX(-50%)
+            scale(.82);
+
+        transform-origin:
+            bottom center;
+    }
+
+    .intro h2 {
+        font-size: 19px;
+    }
+
+    .actions {
+        margin-top: 10px;
+    }
+
+    .btn {
+        height: 45px;
+    }
+
+    /* IMPORTANT:
+       Keep scrolling enabled even on short screens */
+    .welcome-screen {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+
+/* ==========================================
+   FINAL SCROLL SAFETY FIX
+========================================== */
+
+html,
+body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.phone {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+.welcome-screen {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+}
