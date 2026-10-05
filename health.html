@@ -1,0 +1,3607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
+
+    <title>Health & Records | PorkyPal</title>
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #eee4e1;
+
+            color: #493a36;
+
+            display: flex;
+            justify-content: center;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* ==================================================
+           PHONE
+        ================================================== */
+
+        .phone {
+            width: 100%;
+            max-width: 430px;
+
+            min-height: 100vh;
+
+            background: #fffaf8;
+
+            position: relative;
+
+            overflow: visible;
+        }
+
+
+        .page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-bottom: 105px;
+
+            background: #fffaf8;
+
+            overflow: visible;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .top-header {
+            padding:
+                19px
+                18px
+                9px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .back-button,
+        .profile-button {
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                #efd9df;
+
+            background: #ffffff;
+
+            color: #e94b82;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 3px 10px
+                rgba(80, 45, 40, .04);
+        }
+
+        .back-button {
+            font-size: 20px;
+        }
+
+        .profile-button {
+            font-size: 17px;
+        }
+
+        .back-button:active,
+        .profile-button:active {
+            transform: scale(.95);
+        }
+
+        .page-title {
+            font-size: 20px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .page-title span {
+            color: #e94b82;
+        }
+
+
+        /* ==================================================
+           CONTENT
+        ================================================== */
+
+        .content {
+            width: 100%;
+
+            padding:
+                4px
+                18px
+                20px;
+
+            overflow: visible;
+        }
+
+
+        /* ==================================================
+           INTRO
+        ================================================== */
+
+        .intro {
+            margin-bottom: 14px;
+        }
+
+        .intro-title {
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .intro-text {
+
+            margin-top: 4px;
+
+            color: #a18f89;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ==================================================
+           HEALTH SUMMARY
+        ================================================== */
+
+        .summary-card {
+
+            width: 100%;
+
+            min-height: 92px;
+
+            padding: 14px;
+
+            border-radius: 19px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f4,
+                    #ffffff
+                );
+
+            border:
+                1px solid
+                #f0dce2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            box-shadow:
+                0 6px 18px
+                rgba(
+                    80,
+                    48,
+                    43,
+                    .05
+                );
+
+            margin-bottom: 18px;
+        }
+
+        .summary-icon {
+
+            width: 55px;
+            height: 55px;
+
+            flex-shrink: 0;
+
+            border-radius: 17px;
+
+            background: #ffe3ec;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 28px;
+        }
+
+        .summary-info {
+            min-width: 0;
+        }
+
+        .summary-title {
+
+            font-size: 14px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .summary-text {
+
+            margin-top: 4px;
+
+            color: #9f8d87;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ==================================================
+           SECTION HEADER
+        ================================================== */
+
+        .section-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 9px;
+        }
+
+        .section-title {
+
+            font-size: 14px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .section-count {
+
+            min-width: 24px;
+
+            height: 23px;
+
+            padding: 0 7px;
+
+            border-radius: 12px;
+
+            background: #ffe7ef;
+
+            color: #e94b82;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 8px;
+
+            font-weight: 900;
+        }
+
+
+        /* ==================================================
+           PIG LIST
+        ================================================== */
+
+        .pig-health-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .pig-health-card {
+
+            width: 100%;
+
+            min-height: 72px;
+
+            padding:
+                10px
+                11px;
+
+            border:
+                1px solid
+                #f0dfe3;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            box-shadow:
+                0 3px 12px
+                rgba(
+                    80,
+                    48,
+                    43,
+                    .035
+                );
+
+            transition:
+                transform .15s ease,
+                background .15s ease;
+        }
+
+        .pig-health-card:active {
+
+            transform: scale(.985);
+
+            background: #fff6f8;
+        }
+
+        .pig-avatar {
+
+            width: 43px;
+            height: 43px;
+
+            flex-shrink: 0;
+
+            border-radius: 13px;
+
+            background: #ffe8ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+        .pig-health-info {
+
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .pig-name {
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            color: #493a36;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .pig-health-subtitle {
+
+            margin-top: 4px;
+
+            color: #a18f89;
+
+            font-size: 7px;
+        }
+
+        .health-status {
+
+            padding:
+                5px
+                7px;
+
+            border-radius: 7px;
+
+            background: #eaf7ec;
+
+            color: #68a273;
+
+            font-size: 7px;
+
+            font-weight: 900;
+
+            flex-shrink: 0;
+        }
+
+        .health-arrow {
+
+            color: #c4aaa9;
+
+            font-size: 19px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ==================================================
+           ADD BUTTON
+        ================================================== */
+
+        .add-health-button {
+
+            width: 100%;
+
+            height: 45px;
+
+            margin-top: 12px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f65b91,
+                    #e9417b
+                );
+
+            color: #ffffff;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 7px 16px
+                rgba(
+                    239,
+                    79,
+                    135,
+                    .20
+                );
+        }
+
+        .add-health-button:active {
+            transform: scale(.98);
+        }
+
+
+        /* ==================================================
+           NO PIGS
+        ================================================== */
+
+        .empty-state {
+
+            width: 100%;
+
+            min-height: 150px;
+
+            border:
+                1px dashed
+                #eacbd5;
+
+            border-radius: 17px;
+
+            background: #fffdfc;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .empty-icon {
+
+            font-size: 29px;
+
+            margin-bottom: 6px;
+        }
+
+        .empty-title {
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            color: #594741;
+        }
+
+        .empty-text {
+
+            margin-top: 5px;
+
+            max-width: 260px;
+
+            color: #a3918b;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+        .go-pigs-button {
+
+            margin-top: 11px;
+
+            height: 36px;
+
+            padding:
+                0 15px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background: #ffe5ed;
+
+            color: #e94b82;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+
+        /* ==================================================
+           HEALTH RECORDS
+        ================================================== */
+
+        .records-section {
+
+            margin-top: 22px;
+        }
+
+        .records-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .health-record {
+
+            width: 100%;
+
+            min-height: 69px;
+
+            border:
+                1px solid
+                #f0dfe3;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+
+            padding:
+                10px
+                11px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            box-shadow:
+                0 3px 11px
+                rgba(
+                    80,
+                    48,
+                    43,
+                    .035
+                );
+        }
+
+        .health-record:active {
+
+            transform: scale(.985);
+
+            background: #fff6f8;
+        }
+
+        .record-icon {
+
+            width: 40px;
+            height: 40px;
+
+            flex-shrink: 0;
+
+            border-radius: 12px;
+
+            background: #ffe8ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        .record-info {
+
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .record-name {
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .record-details {
+
+            margin-top: 4px;
+
+            color: #a18f89;
+
+            font-size: 7px;
+
+            line-height: 1.4;
+        }
+
+        .record-arrow {
+
+            color: #c4aaa9;
+
+            font-size: 19px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* ==================================================
+           EMPTY RECORDS
+        ================================================== */
+
+        .empty-records {
+
+            width: 100%;
+
+            min-height: 125px;
+
+            border:
+                1px dashed
+                #eacbd5;
+
+            border-radius: 17px;
+
+            background: #fffdfc;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .empty-records-icon {
+
+            font-size: 26px;
+
+            margin-bottom: 6px;
+        }
+
+        .empty-records-title {
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            color: #594741;
+        }
+
+        .empty-records-text {
+
+            margin-top: 5px;
+
+            color: #a3918b;
+
+            font-size: 8px;
+        }
+
+
+        /* ==================================================
+           MODAL
+        ================================================== */
+
+        .modal-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(
+                    50,
+                    30,
+                    27,
+                    .42
+                );
+
+            display: none;
+
+            align-items: flex-end;
+
+            justify-content: center;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: #fffaf8;
+
+            border-radius:
+                25px
+                25px
+                0
+                0;
+
+            padding:
+                20px
+                18px
+                28px;
+
+            animation:
+                slideUp .2s ease;
+        }
+
+        @keyframes slideUp {
+
+            from {
+                transform:
+                    translateY(100%);
+            }
+
+            to {
+                transform:
+                    translateY(0);
+            }
+        }
+
+        .modal-handle {
+
+            width: 38px;
+
+            height: 4px;
+
+            border-radius: 10px;
+
+            background: #dfccc8;
+
+            margin:
+                0 auto
+                17px;
+        }
+
+        .modal-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .close-modal {
+
+            width: 33px;
+            height: 33px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                #efdce2;
+
+            background: #ffffff;
+
+            color: #8e7a74;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+
+        /* ==================================================
+           FORM
+        ================================================== */
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            color: #594741;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+
+            width: 100%;
+
+            border:
+                1.5px solid
+                #efdce2;
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            color: #493a36;
+
+            outline: none;
+
+            padding:
+                0 11px;
+
+            font-size: 10px;
+        }
+
+        .form-input,
+        .form-select {
+
+            height: 43px;
+        }
+
+        .form-textarea {
+
+            min-height: 78px;
+
+            padding:
+                10px
+                11px;
+
+            resize: vertical;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+
+            border-color:
+                #ed7da2;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    239,
+                    79,
+                    135,
+                    .08
+                );
+        }
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 9px;
+        }
+
+        .save-button {
+
+            width: 100%;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f65b91,
+                    #e9417b
+                );
+
+            color: #ffffff;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+        }
+
+
+        /* ==================================================
+           DETAILS
+        ================================================== */
+
+        .details-icon {
+
+            width: 72px;
+            height: 72px;
+
+            margin:
+                0 auto
+                11px;
+
+            border-radius: 22px;
+
+            background: #ffe8ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 34px;
+        }
+
+        .details-pig-name {
+
+            text-align: center;
+
+            font-size: 19px;
+
+            font-weight: 900;
+
+            color: #493a36;
+        }
+
+        .details-subtitle {
+
+            text-align: center;
+
+            margin-top: 4px;
+
+            color: #a3918b;
+
+            font-size: 8px;
+        }
+
+        .details-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .details-box {
+
+            padding: 11px;
+
+            border:
+                1px solid
+                #f0dfe3;
+
+            border-radius: 13px;
+
+            background: #ffffff;
+        }
+
+        .details-label {
+
+            font-size: 7px;
+
+            color: #a3918b;
+        }
+
+        .details-value {
+
+            margin-top: 4px;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            color: #493a36;
+
+            word-break: break-word;
+        }
+
+
+        /* ==================================================
+           DELETE
+        ================================================== */
+
+        .delete-button {
+
+            width: 100%;
+
+            height: 43px;
+
+            margin-top: 17px;
+
+            border:
+                1px solid
+                #efcbd3;
+
+            border-radius: 13px;
+
+            background: #fff6f7;
+
+            color: #d85d72;
+
+            font-size: 9px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+
+        /* ==================================================
+           BOTTOM NAV
+        ================================================== */
+
+        .bottom-nav {
+
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 0;
+
+            transform:
+                translateX(-50%);
+
+            width: 100%;
+
+            max-width: 430px;
+
+            height: 72px;
+
+            background:
+                rgba(
+                    255,
+                    250,
+                    248,
+                    .98
+                );
+
+            border-top:
+                1px solid
+                #f0dfe3;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            z-index: 50;
+
+            padding-bottom: 4px;
+        }
+
+        .nav-button {
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 4px;
+
+            color: #a99a95;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+        .nav-icon {
+
+            width: 29px;
+            height: 29px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+        }
+
+        .nav-button.active {
+
+            color: #e94b82;
+        }
+
+        .nav-button.active .nav-icon {
+
+            background: #ffe6ee;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (min-width: 600px) {
+
+            body {
+
+                align-items: flex-start;
+
+                padding: 20px 0;
+            }
+
+            .phone {
+
+                min-height:
+                    calc(100vh - 40px);
+
+                border-radius: 35px;
+
+                box-shadow:
+                    0 20px 60px
+                    rgba(
+                        70,
+                        45,
+                        38,
+                        .18
+                    );
+            }
+
+            .page {
+
+                min-height:
+                    calc(100vh - 40px);
+
+                border-radius: 35px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="phone">
+
+
+    <main class="page">
+
+
+        <!-- ==================================================
+             HEADER
+        ================================================== -->
+
+        <header class="top-header">
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    class="back-button"
+                    id="backButton">
+
+                    ←
+
+                </button>
+
+
+                <div class="page-title">
+
+                    Health
+                    <span>& Records</span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="profile-button"
+                id="profileButton">
+
+                👤
+
+            </button>
+
+        </header>
+
+
+        <!-- ==================================================
+             CONTENT
+        ================================================== -->
+
+        <section class="content">
+
+
+            <!-- ==================================================
+                 INTRO
+            ================================================== -->
+
+            <div class="intro">
+
+                <div class="intro-title">
+                    Health & Records
+                </div>
+
+                <div class="intro-text">
+                    Monitor your pigs' health and keep
+                    important health records organized.
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 SUMMARY
+            ================================================== -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    ❤️
+                </div>
+
+                <div class="summary-info">
+
+                    <div class="summary-title">
+                        Health Monitoring
+                    </div>
+
+                    <div class="summary-text">
+                        Keep track of checkups,
+                        vaccinations, treatments,
+                        weight, and other health records.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 MY PIGS
+            ================================================== -->
+
+            <div class="section-header">
+
+                <div class="section-title">
+                    Pig Health
+                </div>
+
+                <div
+                    class="section-count"
+                    id="pigCount">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="pig-health-list"
+                id="pigHealthList">
+            </div>
+
+
+            <div
+                class="empty-state"
+                id="emptyPigState"
+                style="display:none;">
+
+                <div class="empty-icon">
+                    🐷
+                </div>
+
+                <div class="empty-title">
+                    No pigs registered
+                </div>
+
+                <div class="empty-text">
+                    Add a pig first before creating
+                    health records.
+                </div>
+
+                <button
+                    type="button"
+                    class="go-pigs-button"
+                    id="goPigsButton">
+
+                    Go to My Pigs
+
+                </button>
+
+            </div>
+
+
+            <!-- ==================================================
+                 ADD HEALTH
+            ================================================== -->
+
+            <button
+                type="button"
+                class="add-health-button"
+                id="addHealthButton">
+
+                ＋ Add Health Record
+
+            </button>
+
+
+            <!-- ==================================================
+                 HEALTH RECORDS
+            ================================================== -->
+
+            <div class="records-section">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        Health Records
+                    </div>
+
+                    <div
+                        class="section-count"
+                        id="recordCount">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="records-list"
+                    id="recordsList">
+                </div>
+
+
+                <div
+                    class="empty-records"
+                    id="emptyRecords">
+
+                    <div class="empty-records-icon">
+                        ❤️
+                    </div>
+
+                    <div class="empty-records-title">
+                        No health records yet
+                    </div>
+
+                    <div class="empty-records-text">
+                        Add a health record for your pig.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==================================================
+         ADD HEALTH MODAL
+    ================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="formModal">
+
+
+        <div class="modal">
+
+
+            <div class="modal-handle"></div>
+
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+                    Add Health Record
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="closeFormModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="healthForm">
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="pigSelect">
+
+                        Pig
+
+                    </label>
+
+
+                    <select
+                        id="pigSelect"
+                        class="form-select"
+                        required>
+
+                        <option value="">
+                            Select pig
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="healthType">
+
+                        Health Record Type
+
+                    </label>
+
+
+                    <select
+                        id="healthType"
+                        class="form-select"
+                        required>
+
+                        <option value="">
+                            Select record type
+                        </option>
+
+                        <option value="Health Checkup">
+                            Health Checkup
+                        </option>
+
+                        <option value="Vaccination">
+                            Vaccination
+                        </option>
+
+                        <option value="Medication">
+                            Medication
+                        </option>
+
+                        <option value="Treatment">
+                            Treatment
+                        </option>
+
+                        <option value="Deworming">
+                            Deworming
+                        </option>
+
+                        <option value="Weight Check">
+                            Weight Check
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="healthDate">
+
+                            Date
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="healthDate"
+                            class="form-input"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="healthWeight">
+
+                            Weight (kg)
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="healthWeight"
+                            class="form-input"
+                            placeholder="Optional"
+                            min="0"
+                            step="0.1"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="healthTemperature">
+
+                            Temperature
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="healthTemperature"
+                            class="form-input"
+                            placeholder="Optional"
+                            min="0"
+                            step="0.1"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="healthStatus">
+
+                            Status
+
+                        </label>
+
+
+                        <select
+                            id="healthStatus"
+                            class="form-select">
+
+                            <option value="Healthy">
+                                Healthy
+                            </option>
+
+                            <option value="Monitoring">
+                                Monitoring
+                            </option>
+
+                            <option value="Under Treatment">
+                                Under Treatment
+                            </option>
+
+                            <option value="Recovered">
+                                Recovered
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="healthNotes">
+
+                        Notes
+
+                    </label>
+
+
+                    <textarea
+                        id="healthNotes"
+                        class="form-textarea"
+                        placeholder="Enter health notes..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="save-button">
+
+                    Save Health Record
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         HEALTH DETAILS MODAL
+    ================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="detailsModal">
+
+
+        <div class="modal">
+
+
+            <div class="modal-handle"></div>
+
+
+            <div class="modal-header">
+
+                <div class="modal-title">
+                    Health Record
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="closeDetailsModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <div class="details-icon">
+                ❤️
+            </div>
+
+
+            <div
+                class="details-pig-name"
+                id="detailsPigName">
+
+                Pig
+
+            </div>
+
+
+            <div
+                class="details-subtitle"
+                id="detailsSubtitle">
+
+                Health Record
+
+            </div>
+
+
+            <div class="details-grid">
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Record Type
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsType">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Date
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsDate">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Weight
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsWeight">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Temperature
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsTemperature">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Status
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsStatus">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+                <div class="details-box">
+
+                    <div class="details-label">
+                        Created
+                    </div>
+
+                    <div
+                        class="details-value"
+                        id="detailsCreated">
+
+                        -
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div
+                class="details-box"
+                style="margin-top:8px;">
+
+                <div class="details-label">
+                    Notes
+                </div>
+
+                <div
+                    class="details-value"
+                    id="detailsNotes">
+
+                    No notes
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="delete-button"
+                id="deleteButton">
+
+                🗑 Delete Health Record
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         BOTTOM NAV
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="home.html">
+
+            <div class="nav-icon">
+                🏠
+            </div>
+
+            <span>
+                Home
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="pigs.html">
+
+            <div class="nav-icon">
+                🐷
+            </div>
+
+            <span>
+                Pigs
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="feed.html">
+
+            <div class="nav-icon">
+                🍚
+            </div>
+
+            <span>
+                Feed
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-button active"
+            data-page="health.html">
+
+            <div class="nav-icon">
+                ❤️
+            </div>
+
+            <span>
+                Health
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="nav-button"
+            data-page="profile.html">
+
+            <div class="nav-icon">
+                👤
+            </div>
+
+            <span>
+                Profile
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+</div>
+
+
+<script>
+
+(function () {
+
+
+    /* ==================================================
+       LOGIN CHECK
+    ================================================== */
+
+    const loggedIn =
+        localStorage.getItem(
+            "porkyPalLoggedIn"
+        );
+
+    const currentUserRaw =
+        localStorage.getItem(
+            "porkyPalCurrentUser"
+        );
+
+
+    if (
+        loggedIn !== "true" ||
+        !currentUserRaw
+    ) {
+
+        window.location.replace(
+            "login.html"
+        );
+
+        return;
+    }
+
+
+    let currentUser;
+
+
+    try {
+
+        currentUser =
+            JSON.parse(
+                currentUserRaw
+            );
+
+    } catch (error) {
+
+        window.location.replace(
+            "login.html"
+        );
+
+        return;
+    }
+
+
+    /* ==================================================
+       EMAIL
+    ================================================== */
+
+    const email =
+        String(
+            currentUser.email || ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    if (!email) {
+
+        window.location.replace(
+            "login.html"
+        );
+
+        return;
+    }
+
+
+    /* ==================================================
+       USER DATA KEY
+    ================================================== */
+
+    const dataKey =
+        "porkyPal_homeData_" +
+        encodeURIComponent(email);
+
+
+    /* ==================================================
+       LOAD DATA
+    ================================================== */
+
+    let userData;
+
+
+    try {
+
+        userData =
+            JSON.parse(
+                localStorage.getItem(
+                    dataKey
+                )
+            );
+
+    } catch (error) {
+
+        userData = null;
+
+    }
+
+
+    if (!userData) {
+
+        userData = {
+
+            pigs: [],
+
+            feedingRecords: [],
+
+            healthRecords: [],
+
+            events: [],
+
+            activities: []
+
+        };
+
+    }
+
+
+    /* ==================================================
+       ENSURE ARRAYS
+    ================================================== */
+
+    if (!Array.isArray(userData.pigs)) {
+        userData.pigs = [];
+    }
+
+    if (!Array.isArray(userData.feedingRecords)) {
+        userData.feedingRecords = [];
+    }
+
+    if (!Array.isArray(userData.healthRecords)) {
+        userData.healthRecords = [];
+    }
+
+    if (!Array.isArray(userData.events)) {
+        userData.events = [];
+    }
+
+    if (!Array.isArray(userData.activities)) {
+        userData.activities = [];
+    }
+
+
+    function saveData() {
+
+        localStorage.setItem(
+            dataKey,
+            JSON.stringify(
+                userData
+            )
+        );
+
+    }
+
+
+    /* ==================================================
+       ELEMENTS
+    ================================================== */
+
+    const pigHealthList =
+        document.getElementById(
+            "pigHealthList"
+        );
+
+    const emptyPigState =
+        document.getElementById(
+            "emptyPigState"
+        );
+
+    const pigCount =
+        document.getElementById(
+            "pigCount"
+        );
+
+    const recordsList =
+        document.getElementById(
+            "recordsList"
+        );
+
+    const emptyRecords =
+        document.getElementById(
+            "emptyRecords"
+        );
+
+    const recordCount =
+        document.getElementById(
+            "recordCount"
+        );
+
+    const formModal =
+        document.getElementById(
+            "formModal"
+        );
+
+    const detailsModal =
+        document.getElementById(
+            "detailsModal"
+        );
+
+
+    let selectedRecordId =
+        null;
+
+
+    /* ==================================================
+       TODAY
+    ================================================== */
+
+    function getTodayString() {
+
+        const now =
+            new Date();
+
+
+        return (
+            now.getFullYear() +
+            "-" +
+            String(
+                now.getMonth() + 1
+            )
+            .padStart(2, "0") +
+            "-" +
+            String(
+                now.getDate()
+            )
+            .padStart(2, "0")
+        );
+
+    }
+
+
+    /* ==================================================
+       DATE FORMAT
+    ================================================== */
+
+    function formatDate(value) {
+
+        if (!value) {
+            return "Not set";
+        }
+
+
+        const date =
+            new Date(
+                value + "T00:00:00"
+            );
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return value;
+
+        }
+
+
+        return date.toLocaleDateString(
+            "en-US",
+            {
+                month: "short",
+                day: "numeric",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    /* ==================================================
+       ESCAPE HTML
+    ================================================== */
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+
+    /* ==================================================
+       PIG NAME
+    ================================================== */
+
+    function getPigName(record) {
+
+        if (record.pigName) {
+
+            return record.pigName;
+
+        }
+
+
+        const pig =
+            userData.pigs.find(
+                function (item) {
+
+                    return (
+                        item.id ===
+                        record.pigId
+                    );
+
+                }
+            );
+
+
+        return pig
+            ? pig.name
+            : "Unknown Pig";
+
+    }
+
+
+    /* ==================================================
+       RENDER PIGS
+    ================================================== */
+
+    function renderPigs() {
+
+        pigHealthList.innerHTML =
+            "";
+
+
+        pigCount.textContent =
+            userData.pigs.length;
+
+
+        if (
+            userData.pigs.length === 0
+        ) {
+
+            pigHealthList.style.display =
+                "none";
+
+            emptyPigState.style.display =
+                "flex";
+
+            return;
+
+        }
+
+
+        pigHealthList.style.display =
+            "flex";
+
+        emptyPigState.style.display =
+            "none";
+
+
+        userData.pigs.forEach(
+            function (pig) {
+
+
+                const card =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                card.type =
+                    "button";
+
+
+                card.className =
+                    "pig-health-card";
+
+
+                const pigRecords =
+                    userData.healthRecords.filter(
+                        function (record) {
+
+                            return (
+                                record.pigId ===
+                                pig.id
+                            );
+
+                        }
+                    );
+
+
+                const latest =
+                    [...pigRecords]
+                        .sort(
+                            function (a, b) {
+
+                                return (
+                                    new Date(
+                                        b.date ||
+                                        0
+                                    ).getTime()
+                                    -
+                                    new Date(
+                                        a.date ||
+                                        0
+                                    ).getTime()
+                                );
+
+                            }
+                        )[0];
+
+
+                let subtitle =
+                    "No health record yet";
+
+
+                if (latest) {
+
+                    subtitle =
+                        (
+                            latest.type ||
+                            "Health record"
+                        ) +
+                        " • " +
+                        formatDate(
+                            latest.date
+                        );
+
+                }
+
+
+                card.innerHTML = `
+
+                    <div class="pig-avatar">
+                        🐷
+                    </div>
+
+
+                    <div class="pig-health-info">
+
+                        <div class="pig-name">
+                            ${escapeHTML(
+                                pig.name
+                            )}
+                        </div>
+
+                        <div class="pig-health-subtitle">
+                            ${escapeHTML(
+                                subtitle
+                            )}
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-status">
+                        ${
+                            pig.status ||
+                            "Healthy"
+                        }
+                    </div>
+
+
+                    <div class="health-arrow">
+                        ›
+                    </div>
+
+                `;
+
+
+                card.addEventListener(
+                    "click",
+                    function () {
+
+                        openAddModal(
+                            pig.id
+                        );
+
+                    }
+                );
+
+
+                pigHealthList.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ==================================================
+       RENDER HEALTH RECORDS
+    ================================================== */
+
+    function renderRecords() {
+
+        recordsList.innerHTML =
+            "";
+
+
+        recordCount.textContent =
+            userData.healthRecords.length;
+
+
+        if (
+            userData.healthRecords.length ===
+            0
+        ) {
+
+            emptyRecords.style.display =
+                "flex";
+
+            return;
+
+        }
+
+
+        emptyRecords.style.display =
+            "none";
+
+
+        const records =
+            [...userData.healthRecords]
+                .sort(
+                    function (a, b) {
+
+                        return (
+                            new Date(
+                                b.date ||
+                                0
+                            ).getTime()
+                            -
+                            new Date(
+                                a.date ||
+                                0
+                            ).getTime()
+                        );
+
+                    }
+                );
+
+
+        records.forEach(
+            function (record) {
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.className =
+                    "health-record";
+
+
+                button.innerHTML = `
+
+                    <div class="record-icon">
+                        ❤️
+                    </div>
+
+
+                    <div class="record-info">
+
+                        <div class="record-name">
+                            ${escapeHTML(
+                                getPigName(
+                                    record
+                                )
+                            )}
+                        </div>
+
+
+                        <div class="record-details">
+
+                            ${escapeHTML(
+                                record.type ||
+                                "Health Record"
+                            )}
+
+                            •
+
+                            ${escapeHTML(
+                                formatDate(
+                                    record.date
+                                )
+                            )}
+
+                            ${
+                                record.weight
+                                    ? " • " +
+                                      escapeHTML(
+                                          record.weight
+                                      ) +
+                                      " kg"
+                                    : ""
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="record-arrow">
+                        ›
+                    </div>
+
+                `;
+
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        openDetails(
+                            record
+                        );
+
+                    }
+                );
+
+
+                recordsList.appendChild(
+                    button
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ==================================================
+       OPEN ADD MODAL
+    ================================================== */
+
+    function openAddModal(
+        selectedPigId = ""
+    ) {
+
+
+        if (
+            userData.pigs.length === 0
+        ) {
+
+            alert(
+                "Please add a pig first."
+            );
+
+            window.location.href =
+                "pigs.html";
+
+            return;
+        }
+
+
+        const pigSelect =
+            document.getElementById(
+                "pigSelect"
+            );
+
+
+        pigSelect.innerHTML = `
+
+            <option value="">
+                Select pig
+            </option>
+
+        `;
+
+
+        userData.pigs.forEach(
+            function (pig) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    pig.id;
+
+
+                option.textContent =
+                    pig.name;
+
+
+                if (
+                    pig.id ===
+                    selectedPigId
+                ) {
+
+                    option.selected =
+                        true;
+
+                }
+
+
+                pigSelect.appendChild(
+                    option
+                );
+
+            }
+        );
+
+
+        document
+            .getElementById(
+                "healthForm"
+            )
+            .reset();
+
+
+        if (selectedPigId) {
+
+            pigSelect.value =
+                selectedPigId;
+
+        }
+
+
+        document
+            .getElementById(
+                "healthDate"
+            )
+            .value =
+            getTodayString();
+
+
+        formModal.classList.add(
+            "show"
+        );
+
+    }
+
+
+    /* ==================================================
+       ADD BUTTON
+    ================================================== */
+
+    document
+        .getElementById(
+            "addHealthButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                openAddModal();
+
+            }
+        );
+
+
+    /* ==================================================
+       CLOSE FORM
+    ================================================== */
+
+    function closeFormModal() {
+
+        formModal.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    document
+        .getElementById(
+            "closeFormModal"
+        )
+        .addEventListener(
+            "click",
+            closeFormModal
+        );
+
+
+    formModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                formModal
+            ) {
+
+                closeFormModal();
+
+            }
+
+        }
+    );
+
+
+    /* ==================================================
+       SAVE HEALTH RECORD
+    ================================================== */
+
+    document
+        .getElementById(
+            "healthForm"
+        )
+        .addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const pigId =
+                    document
+                        .getElementById(
+                            "pigSelect"
+                        )
+                        .value;
+
+
+                const type =
+                    document
+                        .getElementById(
+                            "healthType"
+                        )
+                        .value;
+
+
+                const date =
+                    document
+                        .getElementById(
+                            "healthDate"
+                        )
+                        .value;
+
+
+                const weight =
+                    document
+                        .getElementById(
+                            "healthWeight"
+                        )
+                        .value
+                        .trim();
+
+
+                const temperature =
+                    document
+                        .getElementById(
+                            "healthTemperature"
+                        )
+                        .value
+                        .trim();
+
+
+                const status =
+                    document
+                        .getElementById(
+                            "healthStatus"
+                        )
+                        .value;
+
+
+                const notes =
+                    document
+                        .getElementById(
+                            "healthNotes"
+                        )
+                        .value
+                        .trim();
+
+
+                if (
+                    !pigId ||
+                    !type ||
+                    !date
+                ) {
+
+                    alert(
+                        "Please complete the required health information."
+                    );
+
+                    return;
+                }
+
+
+                const pig =
+                    userData.pigs.find(
+                        function (item) {
+
+                            return (
+                                item.id ===
+                                pigId
+                            );
+
+                        }
+                    );
+
+
+                if (!pig) {
+
+                    alert(
+                        "Pig not found."
+                    );
+
+                    return;
+                }
+
+
+                const record = {
+
+                    id:
+                        "health_" +
+                        Date.now() +
+                        "_" +
+                        Math.random()
+                            .toString(36)
+                            .substring(2, 8),
+
+                    pigId:
+                        pig.id,
+
+                    pigName:
+                        pig.name,
+
+                    type:
+                        type,
+
+                    date:
+                        date,
+
+                    weight:
+                        weight,
+
+                    temperature:
+                        temperature,
+
+                    status:
+                        status,
+
+                    notes:
+                        notes,
+
+                    createdAt:
+                        new Date()
+                            .toISOString()
+
+                };
+
+
+                userData.healthRecords.push(
+                    record
+                );
+
+
+                /* ==================================================
+                   RECENT ACTIVITY
+                ================================================== */
+
+                userData.activities.unshift({
+
+                    id:
+                        "activity_" +
+                        Date.now() +
+                        "_" +
+                        Math.random()
+                            .toString(36)
+                            .substring(2, 8),
+
+                    type:
+                        "health_added",
+
+                    text:
+                        "Added health record for " +
+                        pig.name,
+
+                    date:
+                        new Date()
+                            .toISOString(),
+
+                    recordId:
+                        record.id
+
+                });
+
+
+                if (
+                    userData.activities.length >
+                    50
+                ) {
+
+                    userData.activities =
+                        userData.activities
+                            .slice(
+                                0,
+                                50
+                            );
+
+                }
+
+
+                saveData();
+
+
+                closeFormModal();
+
+
+                renderPigs();
+
+                renderRecords();
+
+
+                alert(
+                    "Health record added successfully!"
+                );
+
+            }
+        );
+
+
+    /* ==================================================
+       OPEN DETAILS
+    ================================================== */
+
+    function openDetails(record) {
+
+        selectedRecordId =
+            record.id;
+
+
+        document
+            .getElementById(
+                "detailsPigName"
+            )
+            .textContent =
+            getPigName(
+                record
+            );
+
+
+        document
+            .getElementById(
+                "detailsType"
+            )
+            .textContent =
+            record.type ||
+            "Health Record";
+
+
+        document
+            .getElementById(
+                "detailsDate"
+            )
+            .textContent =
+            formatDate(
+                record.date
+            );
+
+
+        document
+            .getElementById(
+                "detailsWeight"
+            )
+            .textContent =
+            record.weight
+                ? record.weight +
+                  " kg"
+                : "Not recorded";
+
+
+        document
+            .getElementById(
+                "detailsTemperature"
+            )
+            .textContent =
+            record.temperature
+                ? record.temperature +
+                  " °C"
+                : "Not recorded";
+
+
+        document
+            .getElementById(
+                "detailsStatus"
+            )
+            .textContent =
+            record.status ||
+            "Healthy";
+
+
+        document
+            .getElementById(
+                "detailsCreated"
+            )
+            .textContent =
+            record.createdAt
+                ? new Date(
+                    record.createdAt
+                ).toLocaleDateString(
+                    "en-US",
+                    {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric"
+                    }
+                )
+                : "Not available";
+
+
+        document
+            .getElementById(
+                "detailsNotes"
+            )
+            .textContent =
+            record.notes ||
+            "No notes";
+
+
+        detailsModal.classList.add(
+            "show"
+        );
+
+    }
+
+
+    /* ==================================================
+       CLOSE DETAILS
+    ================================================== */
+
+    function closeDetails() {
+
+        detailsModal.classList.remove(
+            "show"
+        );
+
+        selectedRecordId =
+            null;
+
+    }
+
+
+    document
+        .getElementById(
+            "closeDetailsModal"
+        )
+        .addEventListener(
+            "click",
+            closeDetails
+        );
+
+
+    detailsModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                detailsModal
+            ) {
+
+                closeDetails();
+
+            }
+
+        }
+    );
+
+
+    /* ==================================================
+       DELETE HEALTH RECORD
+    ================================================== */
+
+    document
+        .getElementById(
+            "deleteButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+
+                if (!selectedRecordId) {
+                    return;
+                }
+
+
+                const record =
+                    userData.healthRecords.find(
+                        function (item) {
+
+                            return (
+                                item.id ===
+                                selectedRecordId
+                            );
+
+                        }
+                    );
+
+
+                if (!record) {
+
+                    alert(
+                        "Health record not found."
+                    );
+
+                    return;
+                }
+
+
+                const confirmed =
+                    confirm(
+                        "Delete this health record?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                userData.healthRecords =
+                    userData.healthRecords.filter(
+                        function (item) {
+
+                            return (
+                                item.id !==
+                                selectedRecordId
+                            );
+
+                        }
+                    );
+
+
+                userData.activities.unshift({
+
+                    id:
+                        "activity_" +
+                        Date.now() +
+                        "_" +
+                        Math.random()
+                            .toString(36)
+                            .substring(2, 8),
+
+                    type:
+                        "health_deleted",
+
+                    text:
+                        "Deleted health record for " +
+                        getPigName(
+                            record
+                        ),
+
+                    date:
+                        new Date()
+                            .toISOString(),
+
+                    recordId:
+                        record.id
+
+                });
+
+
+                if (
+                    userData.activities.length >
+                    50
+                ) {
+
+                    userData.activities =
+                        userData.activities
+                            .slice(
+                                0,
+                                50
+                            );
+
+                }
+
+
+                saveData();
+
+
+                closeDetails();
+
+
+                renderPigs();
+
+                renderRecords();
+
+
+                alert(
+                    "Health record deleted."
+                );
+
+            }
+        );
+
+
+    /* ==================================================
+       GO TO PIGS
+    ================================================== */
+
+    document
+        .getElementById(
+            "goPigsButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "pigs.html";
+
+            }
+        );
+
+
+    /* ==================================================
+       BACK
+    ================================================== */
+
+    document
+        .getElementById(
+            "backButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "home.html";
+
+            }
+        );
+
+
+    /* ==================================================
+       PROFILE
+    ================================================== */
+
+    document
+        .getElementById(
+            "profileButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "profile.html";
+
+            }
+        );
+
+
+    /* ==================================================
+       BOTTOM NAV
+    ================================================== */
+
+    document
+        .querySelectorAll(
+            ".nav-button"
+        )
+        .forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const page =
+                            button.dataset.page;
+
+
+                        if (page) {
+
+                            window.location.href =
+                                page;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* ==================================================
+       REFRESH ON RETURN
+    ================================================== */
+
+    window.addEventListener(
+        "pageshow",
+        function () {
+
+            try {
+
+                const latest =
+                    JSON.parse(
+                        localStorage.getItem(
+                            dataKey
+                        )
+                    );
+
+
+                if (latest) {
+
+                    userData =
+                        latest;
+
+
+                    if (
+                        !Array.isArray(
+                            userData.pigs
+                        )
+                    ) {
+
+                        userData.pigs = [];
+
+                    }
+
+
+                    if (
+                        !Array.isArray(
+                            userData.healthRecords
+                        )
+                    ) {
+
+                        userData.healthRecords = [];
+
+                    }
+
+
+                    if (
+                        !Array.isArray(
+                            userData.activities
+                        )
+                    ) {
+
+                        userData.activities = [];
+
+                    }
+
+
+                    renderPigs();
+
+                    renderRecords();
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Unable to refresh health data."
+                );
+
+            }
+
+        }
+    );
+
+
+    /* ==================================================
+       INITIAL LOAD
+    ================================================== */
+
+    renderPigs();
+
+    renderRecords();
+
+
+})();
+
+</script>
+
+
+</body>
+
+</html>

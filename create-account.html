@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
+
+    <title>PorkyPal | Create Account</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #eadfdd;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+
+        /* =========================================
+           PHONE
+        ========================================= */
+
+        .phone {
+            width: 100%;
+            max-width: 430px;
+            min-height: 100vh;
+
+            background: #fffaf7;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+
+
+        /* =========================================
+           SCREEN
+        ========================================= */
+
+        .screen {
+            min-height: 100vh;
+
+            padding:
+                22px
+                20px
+                30px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fffafa 0%,
+                    #fff5f1 100%
+                );
+
+            overflow-y: auto;
+        }
+
+
+
+        /* =========================================
+           TOP
+        ========================================= */
+
+        .top {
+            display: flex;
+
+            align-items: center;
+
+            margin-bottom: 17px;
+        }
+
+
+        .back-button {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            background: #ffe7ee;
+
+            color: #e94b82;
+
+            font-size: 23px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .top-logo {
+            flex: 1;
+
+            text-align: center;
+
+            padding-right: 42px;
+        }
+
+
+        .top-logo h1 {
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            font-size: 28px;
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            letter-spacing: -1.5px;
+
+            color: #ed4c84;
+        }
+
+
+        .top-logo h1 span {
+            color: #f28aa9;
+        }
+
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+
+        .pig-icon {
+            width: 66px;
+            height: 66px;
+
+            margin: 0 auto 12px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background: #ffe2eb;
+
+            font-size: 36px;
+
+            border:
+                1px solid
+                #f5c2d1;
+        }
+
+
+        .header h2 {
+            color: #493a36;
+
+            font-size: 25px;
+
+            font-weight: 800;
+        }
+
+
+        .header p {
+            margin-top: 7px;
+
+            color: #99837c;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form {
+            width: 100%;
+        }
+
+
+        .field {
+            margin-bottom: 13px;
+        }
+
+
+        .field label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #5e4b45;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .input-wrapper {
+            position: relative;
+        }
+
+
+        .input-wrapper input {
+            width: 100%;
+
+            height: 48px;
+
+            padding:
+                0
+                14px;
+
+            border:
+                1.5px solid
+                #ead7d9;
+
+            border-radius: 14px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #493a36;
+
+            font-size: 13px;
+
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease;
+        }
+
+
+        .input-wrapper input:focus {
+            border-color: #ed7da0;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(237,125,160,.10);
+        }
+
+
+        .input-wrapper input::placeholder {
+            color: #b9a7a2;
+        }
+
+
+        .password-input {
+            padding-right: 48px !important;
+        }
+
+
+        .eye-button {
+            position: absolute;
+
+            right: 8px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 34px;
+            height: 34px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: transparent;
+
+            color: #a48d86;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        /* =========================================
+           TERMS
+        ========================================= */
+
+        .terms {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            margin:
+                4px
+                0
+                17px;
+        }
+
+
+        .terms input {
+            width: 15px;
+            height: 15px;
+
+            margin-top: 2px;
+
+            accent-color: #e94b82;
+
+            flex-shrink: 0;
+        }
+
+
+        .terms label {
+            color: #95817b;
+
+            font-size: 10px;
+
+            line-height: 1.45;
+        }
+
+
+        .terms a {
+            color: #e94b82;
+
+            text-decoration: none;
+
+            font-weight: 700;
+        }
+
+
+
+        /* =========================================
+           CREATE BUTTON
+        ========================================= */
+
+        .create-button {
+            width: 100%;
+
+            height: 51px;
+
+            border: none;
+
+            border-radius: 16px;
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f65b91,
+                    #e9417b
+                );
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 18px
+                rgba(239,79,135,.22);
+
+            transition:
+                transform .15s ease,
+                opacity .15s ease;
+        }
+
+
+        .create-button:active {
+            transform: scale(.98);
+        }
+
+
+        .create-button:disabled {
+            opacity: .55;
+
+            cursor: not-allowed;
+        }
+
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .message {
+            display: none;
+
+            margin-top: 11px;
+
+            padding:
+                10px
+                12px;
+
+            border-radius: 11px;
+
+            text-align: center;
+
+            font-size: 10px;
+
+            line-height: 1.4;
+        }
+
+
+        .message.error {
+            display: block;
+
+            color: #b83c57;
+
+            background: #ffe8ed;
+
+            border:
+                1px solid
+                #f4becb;
+        }
+
+
+        .message.success {
+            display: block;
+
+            color: #42805b;
+
+            background: #e9f8ee;
+
+            border:
+                1px solid
+                #bfe4cb;
+        }
+
+
+
+        /* =========================================
+           LOGIN LINK
+        ========================================= */
+
+        .login-link {
+            margin-top: 17px;
+
+            text-align: center;
+
+            color: #9b8780;
+
+            font-size: 11px;
+        }
+
+
+        .login-link a {
+            color: #e94b82;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            margin-top: 18px;
+
+            text-align: center;
+
+            color: #ad9690;
+
+            font-size: 9px;
+        }
+
+
+
+        /* =========================================
+           DESKTOP
+        ========================================= */
+
+        @media (min-width: 600px) {
+
+            .phone {
+                min-height: 820px;
+
+                height: 100vh;
+
+                max-height: 900px;
+
+                border-radius: 35px;
+
+                box-shadow:
+                    0 20px 60px
+                    rgba(70,45,38,.18);
+            }
+
+        }
+
+
+
+        /* =========================================
+           SMALL SCREEN
+        ========================================= */
+
+        @media (max-height: 700px) {
+
+            .screen {
+                padding-top: 15px;
+            }
+
+
+            .top {
+                margin-bottom: 10px;
+            }
+
+
+            .header {
+                margin-bottom: 13px;
+            }
+
+
+            .pig-icon {
+                width: 54px;
+                height: 54px;
+
+                font-size: 29px;
+
+                margin-bottom: 7px;
+            }
+
+
+            .header h2 {
+                font-size: 21px;
+            }
+
+
+            .field {
+                margin-bottom: 9px;
+            }
+
+
+            .input-wrapper input {
+                height: 43px;
+            }
+
+
+            .create-button {
+                height: 46px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="phone">
+
+
+        <main class="screen">
+
+
+            <!-- =========================================
+                 TOP
+            ========================================== -->
+
+            <div class="top">
+
+                <button
+                    type="button"
+                    class="back-button"
+                    id="backButton"
+                    aria-label="Back"
+                >
+                    ←
+                </button>
+
+
+                <div class="top-logo">
+
+                    <h1>
+                        Porky<span>Pal</span>
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 HEADER
+            ========================================== -->
+
+            <section class="header">
+
+
+                <div class="pig-icon">
+                    🐷
+                </div>
+
+
+                <h2>
+                    Create Account
+                </h2>
+
+
+                <p>
+                    Create your PorkyPal account<br>
+                    and start managing your pigs.
+                </p>
+
+
+            </section>
+
+
+
+            <!-- =========================================
+                 FORM
+            ========================================== -->
+
+            <form
+                class="form"
+                id="createAccountForm"
+                novalidate
+            >
+
+
+                <!-- FULL NAME -->
+
+                <div class="field">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="password-input"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="eye-button"
+                            id="passwordEye"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="field">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            class="password-input"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="eye-button"
+                            id="confirmEye"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TERMS -->
+
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                    >
+
+
+                    <label for="terms">
+
+                        I agree to the
+                        <a
+                            href="#"
+                            id="termsLink"
+                        >
+                            Terms & Conditions
+                        </a>
+                        and Privacy Policy.
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- CREATE -->
+
+                <button
+                    type="submit"
+                    class="create-button"
+                    id="createButton"
+                >
+                    Create Account
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    class="message"
+                    id="message"
+                ></div>
+
+
+            </form>
+
+
+
+            <!-- =========================================
+                 LOGIN
+            ========================================== -->
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a
+                    href="login.html"
+                    id="loginLink"
+                >
+                    Log In
+                </a>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FOOTER
+            ========================================== -->
+
+            <div class="footer">
+
+                🐷 Your smart farm companion
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================================
+           ELEMENTS
+        ========================================= */
+
+        const backButton =
+            document.getElementById("backButton");
+
+        const form =
+            document.getElementById("createAccountForm");
+
+        const fullName =
+            document.getElementById("fullName");
+
+        const email =
+            document.getElementById("email");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+        const terms =
+            document.getElementById("terms");
+
+        const passwordEye =
+            document.getElementById("passwordEye");
+
+        const confirmEye =
+            document.getElementById("confirmEye");
+
+        const message =
+            document.getElementById("message");
+
+        const termsLink =
+            document.getElementById("termsLink");
+
+
+
+        /* =========================================
+           BACK BUTTON
+        ========================================= */
+
+        backButton.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+
+        /* =========================================
+           SHOW / HIDE PASSWORD
+        ========================================= */
+
+        passwordEye.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    password.type === "password"
+                ) {
+
+                    password.type = "text";
+
+                    passwordEye.textContent = "🙈";
+
+                    passwordEye.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+                } else {
+
+                    password.type = "password";
+
+                    passwordEye.textContent = "👁";
+
+                    passwordEye.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           SHOW / HIDE CONFIRM PASSWORD
+        ========================================= */
+
+        confirmEye.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    confirmPassword.type === "password"
+                ) {
+
+                    confirmPassword.type = "text";
+
+                    confirmEye.textContent = "🙈";
+
+                    confirmEye.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+                } else {
+
+                    confirmPassword.type = "password";
+
+                    confirmEye.textContent = "👁";
+
+                    confirmEye.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        function showMessage(
+            text,
+            type
+        ) {
+
+            message.textContent = text;
+
+            message.className =
+                "message " + type;
+
+        }
+
+
+
+        /* =========================================
+           CLEAR MESSAGE
+        ========================================= */
+
+        function clearMessage() {
+
+            message.textContent = "";
+
+            message.className =
+                "message";
+
+        }
+
+
+
+        /* =========================================
+           TERMS
+        ========================================= */
+
+        termsLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Terms & Conditions will be added here."
+                );
+
+            }
+        );
+
+
+
+        /* =========================================
+           CREATE ACCOUNT
+        ========================================= */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                clearMessage();
+
+
+                const nameValue =
+                    fullName.value.trim();
+
+                const emailValue =
+                    email.value.trim();
+
+                const passwordValue =
+                    password.value;
+
+                const confirmValue =
+                    confirmPassword.value;
+
+
+
+                /* EMPTY FIELDS */
+
+                if (
+                    nameValue === "" ||
+                    emailValue === "" ||
+                    passwordValue === "" ||
+                    confirmValue === ""
+                ) {
+
+                    showMessage(
+                        "Please fill in all required fields.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* EMAIL */
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(emailValue)
+                ) {
+
+                    showMessage(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* PASSWORD LENGTH */
+
+                if (
+                    passwordValue.length < 6
+                ) {
+
+                    showMessage(
+                        "Password must be at least 6 characters.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* PASSWORD MATCH */
+
+                if (
+                    passwordValue !== confirmValue
+                ) {
+
+                    showMessage(
+                        "Passwords do not match.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* TERMS */
+
+                if (!terms.checked) {
+
+                    showMessage(
+                        "Please agree to the Terms & Conditions.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* =====================================
+                   SAVE ACCOUNT TEMPORARILY
+                   ===================================== */
+
+                const account = {
+
+                    fullName: nameValue,
+
+                    email: emailValue,
+
+                    password: passwordValue
+
+                };
+
+
+                localStorage.setItem(
+                    "porkyPalAccount",
+                    JSON.stringify(account)
+                );
+
+
+
+                /* SUCCESS */
+
+                showMessage(
+                    "Account created successfully! Redirecting to login...",
+                    "success"
+                );
+
+
+
+                /* REDIRECT TO LOGIN */
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "login.html";
+
+                    },
+                    1200
+                );
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
