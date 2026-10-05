@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+        initial-scale=1.0,
+        maximum-scale=1.0,
+        user-scalable=no"
+    >
+
+    <title>Login - PorkyPal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff7f2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a2e24;
+        }
+
+        .phone {
+            width: 100%;
+            max-width: 430px;
+            min-height: 100vh;
+            background: #fffaf7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .top {
+            margin-bottom: 35px;
+        }
+
+        .back-btn {
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 14px;
+            background: #f6e5dc;
+            color: #5c372c;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .back-btn:active {
+            transform: scale(0.94);
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            width: 82px;
+            height: 82px;
+            border-radius: 24px;
+            background: #e8a080;
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 43px;
+            box-shadow: 0 10px 25px rgba(180, 104, 72, 0.18);
+        }
+
+        .logo-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #543329;
+        }
+
+        .logo-subtitle {
+            margin-top: 7px;
+            font-size: 14px;
+            color: #94766b;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-container {
+            width: 100%;
+        }
+
+        .welcome-title {
+            font-size: 25px;
+            font-weight: 800;
+            color: #4e3027;
+            margin-bottom: 8px;
+        }
+
+        .welcome-text {
+            color: #92766b;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #59382e;
+            margin-bottom: 8px;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        .field input {
+            width: 100%;
+            height: 54px;
+            border: 1px solid #ead5cc;
+            border-radius: 15px;
+            background: #fff;
+            padding: 0 48px;
+            font-size: 15px;
+            color: #4d3027;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .field input:focus {
+            border-color: #d98968;
+            box-shadow: 0 0 0 3px rgba(217, 137, 104, 0.12);
+        }
+
+        .field input::placeholder {
+            color: #b6a098;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #98776c;
+        }
+
+        /* =========================
+           REMEMBER / FORGOT
+        ========================= */
+
+        .options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 3px;
+            margin-bottom: 23px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #796057;
+            cursor: pointer;
+        }
+
+        .remember input {
+            width: 17px;
+            height: 17px;
+            accent-color: #d98563;
+            cursor: pointer;
+        }
+
+        .forgot-btn {
+            border: none;
+            background: none;
+            color: #c66f4d;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-btn {
+            width: 100%;
+            height: 56px;
+            border: none;
+            border-radius: 16px;
+            background: #d98664;
+            color: white;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(201, 113, 79, 0.25);
+            transition: 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #ce7958;
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* =========================
+           DIVIDER
+        ========================= */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 27px 0;
+            color: #b29c93;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #eadbd5;
+        }
+
+        /* =========================
+           CREATE ACCOUNT
+        ========================= */
+
+        .register-text {
+            text-align: center;
+            font-size: 14px;
+            color: #8b7168;
+        }
+
+        .register-btn {
+            border: none;
+            background: transparent;
+            color: #c76e4d;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            display: none;
+            margin-bottom: 18px;
+            padding: 13px 15px;
+            border-radius: 13px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .message.error {
+            display: block;
+            background: #fff0ee;
+            color: #b7473d;
+            border: 1px solid #f2c9c3;
+        }
+
+        .message.success {
+            display: block;
+            background: #eefaf0;
+            color: #3f7c49;
+            border: 1px solid #cce7d0;
+        }
+
+        /* =========================
+           FORGOT MODAL
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(55, 34, 27, 0.48);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            z-index: 1000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 380px;
+            background: #fffaf7;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(60, 30, 20, 0.2);
+        }
+
+        .modal-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 17px;
+            background: #f6e2d8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .modal h3 {
+            color: #4f3027;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .modal p {
+            color: #8b7168;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .modal-input {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #ead5cc;
+            border-radius: 13px;
+            padding: 0 14px;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .modal-input:focus {
+            border-color: #d98968;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-cancel,
+        .modal-submit {
+            flex: 1;
+            height: 48px;
+            border-radius: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .modal-cancel {
+            border: 1px solid #e5d1c8;
+            background: #fff;
+            color: #76584e;
+        }
+
+        .modal-submit {
+            border: none;
+            background: #d98664;
+            color: white;
+        }
+
+        /* =========================
+           LOADING
+        ========================= */
+
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #fffaf7;
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .loading-screen.show {
+            display: flex;
+        }
+
+        .loading-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 22px;
+            background: #e8a080;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .loading-text {
+            color: #75564c;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .spinner {
+            width: 25px;
+            height: 25px;
+            border: 3px solid #f0d8cd;
+            border-top-color: #d98664;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-top: 15px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================
+           SMALL SCREEN
+        ========================= */
+
+        @media (max-width: 360px) {
+            .page {
+                padding: 25px 18px;
+            }
+
+            .logo-title {
+                font-size: 25px;
+            }
+
+            .welcome-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="phone">
+
+    <div class="page">
+
+        <!-- =========================
+             TOP
+        ========================== -->
+
+        <div class="top">
+            <button
+                class="back-btn"
+                id="backBtn"
+                type="button"
+                aria-label="Back"
+            >
+                ←
+            </button>
+        </div>
+
+        <!-- =========================
+             LOGO
+        ========================== -->
+
+        <div class="logo-area">
+
+            <div class="logo">
+                🐷
+            </div>
+
+            <div class="logo-title">
+                PorkyPal
+            </div>
+
+            <div class="logo-subtitle">
+                Smart Pig Management
+            </div>
+
+        </div>
+
+        <!-- =========================
+             LOGIN FORM
+        ========================== -->
+
+        <div class="form-container">
+
+            <div class="welcome-title">
+                Welcome Back!
+            </div>
+
+            <div class="welcome-text">
+                Log in to continue managing your pigs
+                and keeping track of their records.
+            </div>
+
+            <div
+                class="message"
+                id="message"
+            ></div>
+
+            <form id="loginForm">
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">
+                            ✉️
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- PASSWORD -->
+
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- OPTIONS -->
+
+                <div class="options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+                    <button
+                        type="button"
+                        class="forgot-btn"
+                        id="forgotBtn"
+                    >
+                        Forgot Password?
+                    </button>
+
+                </div>
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                    id="loginBtn"
+                >
+                    Log In
+                </button>
+
+            </form>
+
+            <div class="divider">
+                OR
+            </div>
+
+            <!-- REGISTER -->
+
+            <div class="register-text">
+
+                Don't have an account?
+
+                <button
+                    type="button"
+                    class="register-btn"
+                    id="registerBtn"
+                >
+                    Create Account
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FORGOT PASSWORD MODAL
+========================== -->
+
+<div
+    class="modal-overlay"
+    id="forgotModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-icon">
+            🔑
+        </div>
+
+        <h3>
+            Forgot Password?
+        </h3>
+
+        <p>
+            Enter the email address you used
+            when creating your PorkyPal account.
+        </p>
+
+        <input
+            type="email"
+            class="modal-input"
+            id="forgotEmail"
+            placeholder="Enter your email"
+        >
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel"
+                id="cancelForgot"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="modal-submit"
+                id="submitForgot"
+            >
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     LOADING SCREEN
+========================== -->
+
+<div
+    class="loading-screen"
+    id="loadingScreen"
+>
+
+    <div class="loading-logo">
+        🐷
+    </div>
+
+    <div class="loading-text">
+        Opening PorkyPal...
+    </div>
+
+    <div class="spinner"></div>
+
+</div>
+
+
+<script>
+
+    /* =====================================================
+       AUTOMATIC LOGIN CHECK
+       
+       IMPORTANT:
+       If the user already logged in before and has not
+       logged out, automatically go to home.html.
+    ===================================================== */
+
+    (function checkExistingLogin() {
+
+        const loggedIn =
+            localStorage.getItem("porkyPalLoggedIn");
+
+        const currentUser =
+            localStorage.getItem("porkyPalCurrentUser");
+
+        if (
+            loggedIn === "true" &&
+            currentUser
+        ) {
+
+            try {
+
+                const user =
+                    JSON.parse(currentUser);
+
+                if (
+                    user &&
+                    user.email
+                ) {
+
+                    window.location.replace("home.html");
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Invalid saved login session."
+                );
+
+                localStorage.removeItem(
+                    "porkyPalLoggedIn"
+                );
+
+                localStorage.removeItem(
+                    "porkyPalCurrentUser"
+                );
+
+            }
+
+        }
+
+    })();
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const rememberMe =
+        document.getElementById("rememberMe");
+
+    const loginBtn =
+        document.getElementById("loginBtn");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const message =
+        document.getElementById("message");
+
+    const registerBtn =
+        document.getElementById("registerBtn");
+
+    const backBtn =
+        document.getElementById("backBtn");
+
+    const forgotBtn =
+        document.getElementById("forgotBtn");
+
+    const forgotModal =
+        document.getElementById("forgotModal");
+
+    const cancelForgot =
+        document.getElementById("cancelForgot");
+
+    const submitForgot =
+        document.getElementById("submitForgot");
+
+    const forgotEmail =
+        document.getElementById("forgotEmail");
+
+    const loadingScreen =
+        document.getElementById("loadingScreen");
+
+
+    /* =====================================================
+       SHOW MESSAGE
+    ===================================================== */
+
+    function showMessage(
+        text,
+        type = "error"
+    ) {
+
+        message.textContent = text;
+
+        message.className =
+            "message " + type;
+
+    }
+
+
+    /* =====================================================
+       CLEAR MESSAGE
+    ===================================================== */
+
+    function clearMessage() {
+
+        message.textContent = "";
+
+        message.className =
+            "message";
+
+    }
+
+
+    /* =====================================================
+       SHOW / HIDE PASSWORD
+    ===================================================== */
+
+    togglePassword.addEventListener(
+        "click",
+        function () {
+
+            if (
+                passwordInput.type ===
+                "password"
+            ) {
+
+                passwordInput.type =
+                    "text";
+
+                togglePassword.textContent =
+                    "🙈";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            } else {
+
+                passwordInput.type =
+                    "password";
+
+                togglePassword.textContent =
+                    "👁";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            clearMessage();
+
+            const email =
+                emailInput.value
+                    .trim()
+                    .toLowerCase();
+
+            const password =
+                passwordInput.value;
+
+            if (!email) {
+
+                showMessage(
+                    "Please enter your email address."
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+            if (!password) {
+
+                showMessage(
+                    "Please enter your password."
+                );
+
+                passwordInput.focus();
+
+                return;
+
+            }
+
+
+            /* =============================================
+               GET REGISTERED ACCOUNT
+            ============================================= */
+
+            const savedAccount =
+                localStorage.getItem(
+                    "porkyPalAccount"
+                );
+
+
+            if (!savedAccount) {
+
+                showMessage(
+                    "No PorkyPal account was found. Please create an account first."
+                );
+
+                return;
+
+            }
+
+
+            let account;
+
+            try {
+
+                account =
+                    JSON.parse(savedAccount);
+
+            } catch (error) {
+
+                showMessage(
+                    "Your saved account data is invalid. Please create your account again."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CHECK EMAIL
+            ============================================= */
+
+            const savedEmail =
+                String(
+                    account.email || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+            if (
+                email !== savedEmail
+            ) {
+
+                showMessage(
+                    "The email address does not match your registered account."
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CHECK PASSWORD
+            ============================================= */
+
+            if (
+                password !==
+                String(account.password || "")
+            ) {
+
+                showMessage(
+                    "Incorrect password. Please try again."
+                );
+
+                passwordInput.focus();
+
+                return;
+
+            }
+
+
+            /* =============================================
+               LOGIN SUCCESS
+            ============================================= */
+
+            localStorage.setItem(
+                "porkyPalLoggedIn",
+                "true"
+            );
+
+            localStorage.setItem(
+                "porkyPalCurrentUser",
+                JSON.stringify(account)
+            );
+
+
+            /* =============================================
+               REMEMBER ME
+               
+               The main login state is already saved in
+               localStorage so the user can automatically
+               return to Home until Logout is pressed.
+            ============================================= */
+
+            if (
+                rememberMe.checked
+            ) {
+
+                localStorage.setItem(
+                    "porkyPalRememberMe",
+                    "true"
+                );
+
+            } else {
+
+                localStorage.removeItem(
+                    "porkyPalRememberMe"
+                );
+
+            }
+
+
+            /* =============================================
+               LOADING
+            ============================================= */
+
+            loginBtn.disabled = true;
+
+            loginBtn.textContent =
+                "Logging in...";
+
+            loadingScreen.classList.add(
+                "show"
+            );
+
+
+            /* =============================================
+               GO TO HOME
+            ============================================= */
+
+            setTimeout(
+                function () {
+
+                    window.location.replace(
+                        "home.html"
+                    );
+
+                },
+                500
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CREATE ACCOUNT
+    ===================================================== */
+
+    registerBtn.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "create-account.html";
+
+        }
+    );
+
+
+    /* =====================================================
+       BACK BUTTON
+    ===================================================== */
+
+    backBtn.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+
+
+    /* =====================================================
+       FORGOT PASSWORD
+    ===================================================== */
+
+    forgotBtn.addEventListener(
+        "click",
+        function () {
+
+            forgotEmail.value =
+                emailInput.value.trim();
+
+            forgotModal.classList.add(
+                "show"
+            );
+
+            setTimeout(
+                function () {
+
+                    forgotEmail.focus();
+
+                },
+                100
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE FORGOT MODAL
+    ===================================================== */
+
+    cancelForgot.addEventListener(
+        "click",
+        function () {
+
+            forgotModal.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLICK OUTSIDE MODAL
+    ===================================================== */
+
+    forgotModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                forgotModal
+            ) {
+
+                forgotModal.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       FORGOT PASSWORD CHECK
+    ===================================================== */
+
+    submitForgot.addEventListener(
+        "click",
+        function () {
+
+            const enteredEmail =
+                forgotEmail.value
+                    .trim()
+                    .toLowerCase();
+
+            if (!enteredEmail) {
+
+                alert(
+                    "Please enter your registered email."
+                );
+
+                forgotEmail.focus();
+
+                return;
+
+            }
+
+
+            const savedAccount =
+                localStorage.getItem(
+                    "porkyPalAccount"
+                );
+
+
+            if (!savedAccount) {
+
+                alert(
+                    "No registered PorkyPal account was found."
+                );
+
+                return;
+
+            }
+
+
+            let account;
+
+            try {
+
+                account =
+                    JSON.parse(savedAccount);
+
+            } catch (error) {
+
+                alert(
+                    "Unable to read the saved account."
+                );
+
+                return;
+
+            }
+
+
+            const registeredEmail =
+                String(
+                    account.email || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+            if (
+                enteredEmail ===
+                registeredEmail
+            ) {
+
+                alert(
+                    "Your account was found. For this prototype, your password is the password you created during registration."
+                );
+
+                forgotModal.classList.remove(
+                    "show"
+                );
+
+            } else {
+
+                alert(
+                    "That email is not registered in PorkyPal."
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ENTER KEY IN FORGOT EMAIL
+    ===================================================== */
+
+    forgotEmail.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                event.preventDefault();
+
+                submitForgot.click();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLEAR MESSAGE WHEN USER TYPES
+    ===================================================== */
+
+    emailInput.addEventListener(
+        "input",
+        clearMessage
+    );
+
+    passwordInput.addEventListener(
+        "input",
+        clearMessage
+    );
+
+
+</script>
+
+</body>
+</html>
